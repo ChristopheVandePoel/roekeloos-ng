@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Bariol';
+    src: url("/assets/fonts/bariol_regular-webfont.ttf");
+}
+
+body {
+    font-family: 'Bariol', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
