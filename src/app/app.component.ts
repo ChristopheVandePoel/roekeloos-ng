@@ -16,8 +16,8 @@ import 'rxjs/add/operator/map'
 export class AppComponent implements OnInit {
   posts: Post[];
 
-  // inject http
-  constructor(public http: Http, private wpService: WpConnectService){
+  // inject wordpress connection
+  constructor(private wpService: WpConnectService){
   }
 
   ngOnInit() {
