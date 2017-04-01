@@ -27,3 +27,15 @@ div.content {
     text-align: center;
     width: 50%
 }
+
+hr {
+    background-color: #e4e4e4;
+    border: none;
+    border-collapse: collapse; 
+    display: block;
+    height: 1px;
+}
+
+hr.bottom {
+    margin-top: 30px;
+}
