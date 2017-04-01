@@ -1,0 +1,30 @@
+.container {
+    margin: 0 20px;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+.author-name {
+    font-size: 0.8em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Prediction-breaking shite */
+:host /deep/ img.alignright {
+    float: right;
+    margin: 10px;
+    padding: 2px;
+    border: 1px solid lightgray;
+}

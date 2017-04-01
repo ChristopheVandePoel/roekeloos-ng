@@ -22,6 +22,5 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.wpService.getLatestPosts().subscribe((posts: Post[]) => {this.posts = posts});
-    console.log('App init');
   }
 }

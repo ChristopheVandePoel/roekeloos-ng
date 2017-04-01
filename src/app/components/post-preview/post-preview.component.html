@@ -1,4 +1,5 @@
 <div class="container">
-  <h2>{{post.title}}</h2>
-  <div [innerHTML]='post.excerpt'></div>
+  <h2>{{post.title}}</h2> <span class="author-name" *ngIf="post.author">by {{post.author.name}}</span>  
+  <div [innerHTML]='post.content'></div>
+  <clear></clear>
 </div>

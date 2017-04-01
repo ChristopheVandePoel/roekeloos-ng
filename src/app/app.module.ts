@@ -5,12 +5,14 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PostPreviewComponent } from './components/post-preview/post-preview.component';
-import {WpConnectService} from './sevices/wp-connect.service'
+import {WpConnectService} from './sevices/wp-connect.service';
+import { ClearComponent } from './components/clear/clear.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostPreviewComponent
+    PostPreviewComponent,
+    ClearComponent
   ],
   imports: [
     BrowserModule,

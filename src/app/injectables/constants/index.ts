@@ -3,7 +3,7 @@ export var devConfig = {
 };
 
 export var prodConfig = {
-    apiRoot: 'http://roekeloos.be/api/'
+    apiRoot: 'http://dev.roekeloos.be/api/'
 }
 
 const config = {

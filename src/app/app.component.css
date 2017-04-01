@@ -28,6 +28,24 @@ div.content {
     width: 50%
 }
 
+.preview {
+    display: block;
+    background-color: #fbfbfb;
+    border: 1px solid #e4e4e4;
+    margin: 20px 0;
+    width: 75%;
+}
+
+.preview:hover {
+    background-color: #f8f8f8;
+}
+
+@media (max-width: 750px) {
+  .preview {
+    width: 100%;
+  }
+}
+
 hr {
     background-color: #e4e4e4;
     border: none;
