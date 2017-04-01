@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PostPreviewComponent } from './components/post-preview/post-preview.component';
+import {WpConnectService} from './sevices/wp-connect.service'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { PostPreviewComponent } from './components/post-preview/post-preview.com
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [WpConnectService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

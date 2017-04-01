@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from '../../models/Post';
 
 @Component({
   selector: 'post-preview',
@@ -7,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
   inputs: ['post']
 })
 export class PostPreviewComponent implements OnInit {
-  post: Object;
-  
+  post: Post;
+
   constructor() { }
 
   ngOnInit() {
