@@ -24,7 +24,16 @@ h2 {
 /* Prediction-breaking shite */
 :host /deep/ img.alignright {
     float: right;
-    margin: 10px;
+    margin: 0 10px 10px 10px;
     padding: 2px;
     border: 1px solid lightgray;
+    max-width: 100%;
+    height:auto;
+}
+
+@media (max-width: 450px) {
+    :host /deep/ img.alignright {
+        display: block;
+        margin: 0 auto;
+    }
 }
