@@ -4,8 +4,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Post } from './models/Post';
-import { WpConnectService } from './sevices/wp-connect.service'
-import 'rxjs/add/operator/map'
+import { WpConnectService } from './sevices/wp-connect.service';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/publishReplay';
 
 
 @Component({
