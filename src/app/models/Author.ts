@@ -4,7 +4,7 @@ export class Author {
 
     constructor(obj?: any
     ) {
-        this.id =    obj && obj.title || null;
-        this.name =  obj && obj.excerpt || null;
+        this.id =    obj && obj.id || null;
+        this.name =  obj && obj.name || null;
     }
 }

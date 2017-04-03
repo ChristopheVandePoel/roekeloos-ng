@@ -16,11 +16,12 @@ import 'rxjs/add/operator/map'
 export class AppComponent implements OnInit {
   posts: Post[];
 
-  // inject wordpress connection
+  // inject wordpress connection service
   constructor(private wpService: WpConnectService){
   }
 
   ngOnInit() {
-    this.wpService.getLatestPosts().subscribe((posts: Post[]) => {this.posts = posts});
+    this.wpService.getLatestPosts().subscribe(
+      (posts: Post[]) => {this.posts = posts});
   }
 }
