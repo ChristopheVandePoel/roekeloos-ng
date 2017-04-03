@@ -6,13 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PostPreviewComponent } from './components/post-preview/post-preview.component';
 import {WpConnectService} from './sevices/wp-connect.service';
-import { ClearComponent } from './components/clear/clear.component'
+import { ClearComponent } from './components/clear/clear.component';
+
+import { SafeHtml } from './pipes/safeHtml.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostPreviewComponent,
-    ClearComponent
+    ClearComponent,
+    SafeHtml
   ],
   imports: [
     BrowserModule,

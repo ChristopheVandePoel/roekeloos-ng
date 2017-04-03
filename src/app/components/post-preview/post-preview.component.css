@@ -22,13 +22,20 @@ h2 {
 
 
 /* Prediction-breaking shite */
-:host /deep/ img.alignright {
-    float: right;
+:host /deep/ img {
     margin: 0 10px 10px 10px;
     padding: 2px;
     border: 1px solid lightgray;
     max-width: 100%;
     height:auto;
+}
+
+:host /deep/ img.alignright {
+    float: right;
+}
+
+:host /deep/ img.alignleft {
+    float: left;
 }
 
 @media (max-width: 450px) {
