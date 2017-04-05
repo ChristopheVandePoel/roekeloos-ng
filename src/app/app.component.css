@@ -8,6 +8,11 @@ div.container {
     margin: 0 auto;
     max-width: 75%;
 }
+@media (max-width: 750px) {
+    div.container {
+        max-width: 90%;
+    }
+}
 
 div.content {
     background-color: #f8f8f8;
