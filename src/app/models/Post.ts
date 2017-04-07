@@ -12,8 +12,7 @@ export class Post {
 
     constructor(obj?: any
     ) {
-        console.log(sanitizeHtml);
-        this.id = obj && obj.string;
+        this.id = obj && obj.id;
         this.title =    obj && obj.title && obj.title.rendered || null;
         this.excerpt =  obj && obj.excerpt && obj.excerpt.rendered || null;
         this.content =  obj && obj.content && obj.content.rendered || null;

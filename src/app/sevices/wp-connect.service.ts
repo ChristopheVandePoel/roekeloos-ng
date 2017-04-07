@@ -63,8 +63,11 @@ export class WpConnectService {
         })
         .publishReplay(1)
         .refCount();
+      return this.posts[id];
+
+    } else {
+      return this.posts[id];
     }
-    return this.posts[id];
   }
 
   /**
@@ -80,7 +83,9 @@ export class WpConnectService {
         })
         .publishReplay(1)
         .refCount();
+      return this.authors[id]; 
+    } else {
+      return this.authors[id];
     }
-    return this.authors[id];
   }
 }

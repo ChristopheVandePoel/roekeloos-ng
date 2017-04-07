@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { PostPreviewComponent } from './components/post-preview/post-preview.component';
@@ -13,6 +15,13 @@ import { HeaderComponent } from './components/header/header/header.component';
 import { PlaceholderComponent } from './components/placeholder/placeholder/placeholder.component';
 import { MenuComponent } from './components/menu/menu/menu.component';
 import { LatestPostsComponent } from './components/latest-posts/latest-posts/latest-posts.component';
+import { SinglePostComponent } from './components/single-post/single-post/single-post.component';
+
+const routes: Routes = [
+  { path: 'post/:id', component: SinglePostComponent},
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: LatestPostsComponent}
+];
 
 @NgModule({
   declarations: [
@@ -23,14 +32,19 @@ import { LatestPostsComponent } from './components/latest-posts/latest-posts/lat
     HeaderComponent,
     PlaceholderComponent,
     MenuComponent,
-    LatestPostsComponent
+    LatestPostsComponent,
+    SinglePostComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [WpConnectService],
+  providers: [
+    WpConnectService,
+    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

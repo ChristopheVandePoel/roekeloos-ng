@@ -2,6 +2,7 @@ h1 {
     margin: 0 auto;
     max-width: 75%;
     text-align: right;
+    cursor: pointer;
 }
 
 hr {
