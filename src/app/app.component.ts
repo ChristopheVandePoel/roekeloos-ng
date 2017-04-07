@@ -1,10 +1,5 @@
-/*
- * Angular
- */
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Post } from './models/Post';
-import { WpConnectService } from './sevices/wp-connect.service';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/publishReplay';
 
@@ -15,14 +10,12 @@ import 'rxjs/add/operator/publishReplay';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  posts: Post[];
 
   // inject wordpress connection service
-  constructor(private wpService: WpConnectService){
+  constructor(){
   }
 
   ngOnInit() {
-    this.wpService.getLatestPosts().subscribe(
-      (posts: Post[]) => {this.posts = posts});
+
   }
 }

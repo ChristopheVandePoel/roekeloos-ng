@@ -1,0 +1,13 @@
+h1 {
+    margin: 0 auto;
+    max-width: 75%;
+    text-align: right;
+}
+
+hr {
+    background-color: #e4e4e4;
+    border: none;
+    border-collapse: collapse; 
+    display: block;
+    height: 1px;
+}

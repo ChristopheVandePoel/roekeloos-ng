@@ -9,13 +9,21 @@ import {WpConnectService} from './sevices/wp-connect.service';
 import { ClearComponent } from './components/clear/clear.component';
 
 import { SafeHtml } from './pipes/safeHtml.pipe';
+import { HeaderComponent } from './components/header/header/header.component';
+import { PlaceholderComponent } from './components/placeholder/placeholder/placeholder.component';
+import { MenuComponent } from './components/menu/menu/menu.component';
+import { LatestPostsComponent } from './components/latest-posts/latest-posts/latest-posts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostPreviewComponent,
     ClearComponent,
-    SafeHtml
+    SafeHtml,
+    HeaderComponent,
+    PlaceholderComponent,
+    MenuComponent,
+    LatestPostsComponent
   ],
   imports: [
     BrowserModule,

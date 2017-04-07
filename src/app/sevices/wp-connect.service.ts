@@ -13,9 +13,13 @@ export class WpConnectService {
     apiRoot: string;
 
   // these will hold the Observables. Returning cached results if they can. 
-  latestPosts: {[id: number]: Post} = {};
+  posts: {[id: number]: Observable<Post>} = {};
   authors: {[id: number]: Observable<Author>} = {};
 
+  /**
+   * 
+   * @param http 
+   */
   constructor(public http: Http) { 
     this.apiRoot = config.devConfig.apiRoot
     
@@ -24,7 +28,9 @@ export class WpConnectService {
     }
   }
 
-  // This method will be a bit different from the others for now. I see no reason yet to fetch posts seperately if we want a list.
+  /**
+   * @param force 
+   */
   public getLatestPosts(force: boolean = false): Observable<Post[]> {
     return this.http.get(`${this.apiRoot}posts`)
       .map((response: Response) => {
@@ -36,18 +42,41 @@ export class WpConnectService {
           // Javascript lets us do this. Good indicator that we probably shouldn't.
 
           this.getAuthorById(post.author, force).subscribe((author: Author) => fullPost.setPostAuthor(author));
-          this.latestPosts[fullPost.id] = fullPost;
+          this.posts[fullPost.id] = Observable.of(fullPost);
           return fullPost;
         }));
       });
   }
 
+  /**
+   * 
+   * @param id 
+   * @param force 
+   */
+  public getPostById(id: number, force: boolean = false): Observable<Post> {
+    if(!this.posts[id] || force){
+      this.posts[id] = this.http.get(`${this.apiRoot}posts/${id}`)
+        .map((post: Response) => {
+          let fullPost = new Post(post.json());
+          this.getAuthorById(post.json().author, force).subscribe((author: Author) => fullPost.setPostAuthor(author));
+          return fullPost;
+        })
+        .publishReplay(1)
+        .refCount();
+    }
+    return this.posts[id];
+  }
+
+  /**
+   * 
+   * @param id 
+   * @param force 
+   */
   public getAuthorById(id: number, force: boolean = false): Observable<Author> {
     if(!this.authors[id] || force){
       this.authors[id] = this.http.get(`${this.apiRoot}users/${id}`)
         .map((author: Response) => {
-            let fullAuthor = new Author(author.json());
-            return fullAuthor;
+            return new Author(author.json());
         })
         .publishReplay(1)
         .refCount();

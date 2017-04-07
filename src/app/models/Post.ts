@@ -1,4 +1,6 @@
-import { Author } from './Author'
+import { Author } from './Author';
+import sanitizeHtml from 'sanitize-html';
+
 export class Post {
     id: number
     title: string;
@@ -6,14 +8,17 @@ export class Post {
     content: string; 
     authorId: number;
     author: Author;
+    trimPost: string;
 
     constructor(obj?: any
     ) {
+        console.log(sanitizeHtml);
         this.id = obj && obj.string;
         this.title =    obj && obj.title && obj.title.rendered || null;
         this.excerpt =  obj && obj.excerpt && obj.excerpt.rendered || null;
         this.content =  obj && obj.content && obj.content.rendered || null;
         this.authorId =   obj && obj.author || null;
+        this.trimPost = sanitizeHtml(this.content.substr(0,200));
     }
 
     setPostAuthor(author: Author) {

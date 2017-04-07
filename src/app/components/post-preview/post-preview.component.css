@@ -23,6 +23,7 @@ h2 {
 
 /* Prediction-breaking shite */
 :host /deep/ img {
+    display:none;
     margin: 0 10px 10px 10px;
     padding: 2px;
     border: 1px solid lightgray;

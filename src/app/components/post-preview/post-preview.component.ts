@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { Post } from '../../models/Post';
 
 @Component({
@@ -7,10 +7,12 @@ import { Post } from '../../models/Post';
   styleUrls: ['./post-preview.component.css'],
   inputs: ['post']
 })
-export class PostPreviewComponent implements OnInit {
+export class PostPreviewComponent implements OnInit  {
   post: Post;
+  trimPost: string;
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
   }

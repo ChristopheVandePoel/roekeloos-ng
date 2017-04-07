@@ -1,9 +1,3 @@
-h1 {
-    margin: 0 auto;
-    max-width: 75%;
-    text-align: right;
-}
-
 div.container {
     margin: 0 auto;
     max-width: 75%;
@@ -12,51 +6,6 @@ div.container {
     div.container {
         max-width: 90%;
     }
-}
-
-div.content {
-    background-color: #f8f8f8;
-    border: 1px solid #e4e4e4;
-    border-radius: 4px;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 20px 40px;;
-    width:50%;
-}
-
-.contact {
-    font-size: 0.8em; 
-    display: block;
-    margin: 0 auto;
-    margin-top: 1em;
-    text-align: center;
-    width: 50%
-}
-
-.preview {
-    display: block;
-    background-color: #fbfbfb;
-    border: 1px solid #e4e4e4;
-    margin: 20px 0;
-    width: 75%;
-}
-
-.preview:hover {
-    background-color: #f8f8f8;
-}
-
-@media (max-width: 750px) {
-  .preview {
-    width: 100%;
-  }
-}
-
-hr {
-    background-color: #e4e4e4;
-    border: none;
-    border-collapse: collapse; 
-    display: block;
-    height: 1px;
 }
 
 hr.bottom {
