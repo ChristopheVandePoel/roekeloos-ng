@@ -1,2 +1,9 @@
-<div *ngIf="post" [innerHTML]='post.content | safeHtml'>
+<div *ngIf="post" class="container">
+  <h1>{{post.title}}</h1>
+  <div *ngIf="post.author" class="author-card">
+    <img src={{post.author.avatar}} alt={{post.author.name}}>
+      {{post.author.name}}
+  </div>
+  <div [innerHTML]='post.content | safeHtml' class="post-container">
+  </div>
 </div>

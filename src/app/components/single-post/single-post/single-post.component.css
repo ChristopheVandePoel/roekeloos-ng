@@ -1,0 +1,57 @@
+.container {
+    font-size: 1.3em;
+    max-width: 1200px;
+    margin: 0 auto;
+    line-height: 1.5em; 
+}
+
+img {
+    padding: 2px;
+    border: 1px solid lightgray;
+    max-width: 100%;
+    height: auto;
+    width: 60px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.author-card {
+    float: right;
+    background-color: #fbfbfb;
+    padding: 10px;
+    border: 1px solid #f2f2f2;
+    border-left: 1px solid #e6e6e6;
+    border-radius: 4px;
+    font-size: 0.7em;
+    margin-left: 20px;
+}
+
+/* Prediction-breaking shite */
+.post-container /deep/ pre {
+    display: block;
+    overflow: auto;
+}
+
+.post-container /deep/ img {
+    margin: 0 10px 10px 10px;
+    padding: 2px;
+    border: 1px solid lightgray;
+    max-width: 100%;
+    height:auto;
+}
+
+.post-container /deep/ img.alignright {
+    float: right;
+}
+
+.post-container /deep/ img.alignleft {
+    float: left;
+}
+
+@media (max-width: 450px) {
+    .post-container /deep/ img.alignright {
+        display: block;
+        margin: 0 auto;
+    }
+}
