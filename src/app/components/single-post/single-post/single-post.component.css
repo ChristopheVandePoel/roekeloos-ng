@@ -20,7 +20,7 @@
 
 @media (max-width: 750px) {
     .fixTitle {
-        width: 87%;
+        width: 100%;
     }
 }
 
@@ -78,14 +78,14 @@ img {
 }
 
 .centered {
-    margin: 0 20% 0 30%;
-    max-width: 275px;
+    text-align: center;
 }
 
 .fixTitle div.centered{
     animation-name: author-animate;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    text-align: left;
 }
 
 .fixTitle h1{
