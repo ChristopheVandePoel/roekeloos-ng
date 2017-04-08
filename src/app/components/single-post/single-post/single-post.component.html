@@ -1,9 +1,13 @@
 <div *ngIf="post" class="container">
-  <h1>{{post.title}}</h1>
-  <div *ngIf="post.author" class="author-card">
-    <img src={{post.author.avatar}} alt={{post.author.name}}>
-      {{post.author.name}}
+  <div [class.fixTitle]="scrolledDown" class="title">
+    <h1>{{post.title}}</h1>
+    <div *ngIf="post.author" class="author-card">
+      <div class="centered">
+        <img src={{post.author.avatar}} alt={{post.author.name}} />
+        <span>By {{post.author.name}}</span>
+      </div>
+    </div>
   </div>
-  <div [innerHTML]='post.content | safeHtml' class="post-container">
+  <div [innerHTML]='post.content | safeHtml' class="post-container" [class.push-container]="scrolledDown">
   </div>
 </div>

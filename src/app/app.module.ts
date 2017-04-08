@@ -16,6 +16,7 @@ import { PlaceholderComponent } from './components/placeholder/placeholder/place
 import { MenuComponent } from './components/menu/menu/menu.component';
 import { LatestPostsComponent } from './components/latest-posts/latest-posts/latest-posts.component';
 import { SinglePostComponent } from './components/single-post/single-post/single-post.component';
+import { WatchScrollDirective } from './directives/watch-scroll/watch-scroll.directive';
 
 const routes: Routes = [
   { path: 'post/:id', component: SinglePostComponent},
@@ -33,7 +34,8 @@ const routes: Routes = [
     PlaceholderComponent,
     MenuComponent,
     LatestPostsComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    WatchScrollDirective
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ const routes: Routes = [
   providers: [
     WpConnectService,
     { provide: LocationStrategy, useClass: HashLocationStrategy }
-    ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

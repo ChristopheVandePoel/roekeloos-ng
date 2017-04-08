@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, HostListener } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 
 import { WpConnectService } from '../../../sevices/wp-connect.service';
@@ -11,11 +11,19 @@ import { Post } from '../../../models/Post';
 })
 export class SinglePostComponent implements OnInit {
   post: Post;
+  scrolledDown: boolean = false;
+
+  @HostListener('window:scroll', ['$event'])
+    track(event) {
+        this.scrolledDown = (window.pageYOffset > this.elementRef.nativeElement.offsetTop);
+        console.log(this.scrolledDown);
+    }
 
   constructor(
       private wpService: WpConnectService,
       private route: ActivatedRoute,
-      private router: Router
+      private router: Router,
+      private elementRef: ElementRef
   ) { }
 
   ngOnInit() {

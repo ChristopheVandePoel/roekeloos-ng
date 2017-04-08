@@ -1,8 +1,27 @@
 .container {
     font-size: 1.3em;
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     line-height: 1.5em; 
+}
+
+.fixTitle {
+    position: fixed;
+    top: 0;
+    max-width: inherit;
+    width: 75%;
+    color: white;
+    padding-left: 10px;
+    z-index: 100;
+    animation-name: card-transfer;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@media (max-width: 750px) {
+    .fixTitle {
+        width: 90%;
+    }
 }
 
 img {
@@ -16,15 +35,76 @@ img {
     vertical-align: middle;
 }
 
+@keyframes author-animate {
+    from {
+        padding-top: 10px;
+        margin: 0 20% 0 30%;
+        }
+    to {
+       padding-top: 0px;
+       margin: -25px 0 0 -40px;
+        }
+}
+
+@keyframes card-transfer {
+    from {
+        background-color: #fbfbfb;
+    }
+    to {
+        background-color: rgba(47, 47, 47, 0.9);
+    }
+}
+
 .author-card {
-    float: right;
     background-color: #fbfbfb;
     padding: 10px;
     border: 1px solid #f2f2f2;
     border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
     border-radius: 4px;
     font-size: 0.7em;
-    margin-left: 20px;
+}
+
+.fixTitle div.author-card {
+    background-color: transparent;
+    padding: 10px;
+    padding-top: 0px;
+    padding-left: 0;
+    border: 0 solid #f2f2f2;
+    border-left: 0 solid #e6e6e6;
+    border-right: 0 solid #e6e6e6;
+    border-radius: 0;
+    font-size: 0.7em;
+}
+
+.centered {
+    margin: 0 20% 0 30%;
+    max-width: 275px;
+}
+
+.fixTitle div.centered{
+    animation-name: author-animate;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.fixTitle h1{
+    margin-bottom: 0;
+    margin-left: 25px;
+    font-size: 1.2em;
+}
+
+span {
+    padding-left: 15px;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+}
+
+.post-container.push-container{
+    position: relative;
+    top: 110px;
 }
 
 /* Prediction-breaking shite */
@@ -49,9 +129,10 @@ img {
     float: left;
 }
 
-@media (max-width: 450px) {
-    .post-container /deep/ img.alignright {
+@media (max-width: 575px) {
+    .post-container /deep/ img.alignright, .post-container /deep/ img.alignleft {
         display: block;
-        margin: 0 auto;
+        margin: 25px auto;
+        float: none;
     }
 }
