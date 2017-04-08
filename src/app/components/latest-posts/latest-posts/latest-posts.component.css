@@ -10,7 +10,7 @@
     background-color: #f8f8f8;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 950px) {
   .preview {
     width: 100%;
   }
