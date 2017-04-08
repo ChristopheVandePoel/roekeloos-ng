@@ -1,3 +1,7 @@
+div {
+    background-color: rgba(47, 47, 47, 0.9);
+    color: white;
+}
 h1 {
     font-family: 'Lato', sans-serif;
     margin: 0 auto;
