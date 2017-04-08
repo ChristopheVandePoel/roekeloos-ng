@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 
 import { Post } from '../models/Post';
 import { Author } from '../models/Author';
+import { Media } from '../models/Media';
 import config from '../injectables/constants';
 import { environment } from '../../environments/environment';
 
@@ -15,6 +16,7 @@ export class WpConnectService {
   // these will hold the Observables. Returning cached results if they can. 
   posts: {[id: number]: Observable<Post>} = {};
   authors: {[id: number]: Observable<Author>} = {};
+  media: {[id: number]: Observable<Media>} = {};
 
   /**
    * 
@@ -42,6 +44,9 @@ export class WpConnectService {
           // Javascript lets us do this. Good indicator that we probably shouldn't.
 
           this.getAuthorById(post.author, force).subscribe((author: Author) => fullPost.setPostAuthor(author));
+          if(post.custom_meta && post.custom_meta.imageID) {
+            this.getMediaById(post.custom_meta.imageID, force).subscribe((media: Media) => fullPost.setPostMedia(media));
+          }
           this.posts[fullPost.id] = Observable.of(fullPost);
           return fullPost;
         }));
@@ -59,6 +64,10 @@ export class WpConnectService {
         .map((post: Response) => {
           let fullPost = new Post(post.json());
           this.getAuthorById(post.json().author, force).subscribe((author: Author) => fullPost.setPostAuthor(author));
+          console.log(post.json());
+          if(post.json().custom_meta && post.json().custom_meta.imageID) {
+            this.getMediaById(post.json().author, force).subscribe((media: Media) => fullPost.setPostMedia(media));
+          }
           return fullPost;
         })
         .publishReplay(1)
@@ -86,6 +95,20 @@ export class WpConnectService {
       return this.authors[id]; 
     } else {
       return this.authors[id];
+    }
+  }
+
+  public getMediaById(id: number, force: boolean = false): Observable<Media> {
+    if(!this.media[id] || force){
+      this.media[id] = this.http.get(`${this.apiRoot}media/${id}`)
+        .map((media: Response) => {
+          return new Media(media.json());
+        })
+        .publishReplay(1)
+        .refCount();
+      return this.media[id];
+    } else {
+      return this.media[id];
     }
   }
 }

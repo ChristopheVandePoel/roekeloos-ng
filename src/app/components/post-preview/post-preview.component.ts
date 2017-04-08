@@ -10,9 +10,13 @@ import { Post } from '../../models/Post';
 export class PostPreviewComponent implements OnInit  {
   post: Post;
   trimPost: string;
+  backStyle: object;
 
   constructor() {
-   }
+    this.backStyle = {
+      'background-size': '200%'
+    }
+  }
 
   ngOnInit() {
   }

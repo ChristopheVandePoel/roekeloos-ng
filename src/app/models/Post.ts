@@ -1,4 +1,5 @@
 import { Author } from './Author';
+import { Media } from './Media';
 import sanitizeHtml from 'sanitize-html';
 
 export class Post {
@@ -9,6 +10,7 @@ export class Post {
     authorId: number;
     author: Author;
     trimPost: string;
+    media: Media;
 
     constructor(obj?: any
     ) {
@@ -22,5 +24,9 @@ export class Post {
 
     setPostAuthor(author: Author) {
         this.author = author;
+    }
+
+    setPostMedia(media: Media) {
+        this.media = media;
     }
 }

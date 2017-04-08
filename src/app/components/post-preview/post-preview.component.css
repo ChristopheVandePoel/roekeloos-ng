@@ -1,6 +1,11 @@
 .container {
-    margin: 0 20px;
+    margin: 0;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    max-height: 200px;
+    width: 100%;
+    overflow: hidden;
 }
 
 h2 {
@@ -11,25 +16,37 @@ h2 {
     font-size: 0.8em;
 }
 
+.left-float {
+    flex-grow: 1;
+    flex-shrink: 0.2;
+    flex-basis: 200px;
+    height: 200px;
+    background-size: 110%;
+    background-position: 20%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
 
+.right-float {
+    flex-grow: 4;
+    flex-basis: 400px;
+}
 
-
-
-
-
-
-
+.text-field {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-height: 200px;
+}
 
 
 
 /* Prediction-breaking shite */
 :host /deep/ img {
-    display:none;
-    margin: 0 10px 10px 10px;
+    /*margin: 0 10px 10px 10px;
     padding: 2px;
     border: 1px solid lightgray;
     max-width: 100%;
-    height:auto;
+    height:auto;*/
 }
 
 :host /deep/ img.alignright {
