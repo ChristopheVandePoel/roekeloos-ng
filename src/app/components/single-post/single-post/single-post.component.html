@@ -1,6 +1,7 @@
 <div *ngIf="post" class="container">
-  <div [class.fixTitle]="scrolledDown" class="title">
+  <div class="title">
     <h1>{{post.title}}</h1>
+    <post-banner *ngIf="post.media" [imageUrl]="post.media.url" class="post-banner"></post-banner>
     <div *ngIf="post.author" class="author-card">
       <div class="centered">
         <img src={{post.author.avatar}} alt={{post.author.name}} />

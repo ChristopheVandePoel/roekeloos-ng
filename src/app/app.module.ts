@@ -17,11 +17,15 @@ import { MenuComponent } from './components/menu/menu/menu.component';
 import { LatestPostsComponent } from './components/latest-posts/latest-posts/latest-posts.component';
 import { SinglePostComponent } from './components/single-post/single-post/single-post.component';
 import { WatchScrollDirective } from './directives/watch-scroll/watch-scroll.directive';
+import { HomeContainerComponent } from './components/home-container/home-container/home-container.component';
+import { PostBannerComponent } from './components/post-banner/post-banner/post-banner.component';
+import { SinglePostContainerComponent } from './components/single-post-container/single-post-container/single-post-container.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
-  { path: 'post/:id', component: SinglePostComponent},
+  { path: 'post/:id', component: SinglePostContainerComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: LatestPostsComponent}
+  { path: 'home', component: HomeContainerComponent}
 ];
 
 @NgModule({
@@ -35,7 +39,11 @@ const routes: Routes = [
     MenuComponent,
     LatestPostsComponent,
     SinglePostComponent,
-    WatchScrollDirective
+    WatchScrollDirective,
+    HomeContainerComponent,
+    PostBannerComponent,
+    SinglePostContainerComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

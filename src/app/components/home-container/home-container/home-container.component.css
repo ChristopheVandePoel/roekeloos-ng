@@ -1,0 +1,10 @@
+.single-container{
+    display: block;
+    margin-bottom: 100px;
+}
+
+.latest-container{
+    display: block;
+    margin-top: 50px;
+    margin-bottom: 75px;
+}

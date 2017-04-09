@@ -1,5 +1,5 @@
 div {
-    background-color: rgba(47, 47, 47, 0.9);
+    background-color: rgb(47, 47, 47);
     color: white;
 }
 h1 {
@@ -8,6 +8,7 @@ h1 {
     max-width: 75%;
     text-align: right;
     cursor: pointer;
+    padding: 10px 0;
 }
 
 hr {
@@ -16,4 +17,5 @@ hr {
     border-collapse: collapse; 
     display: block;
     height: 1px;
+    margin: 0;
 }

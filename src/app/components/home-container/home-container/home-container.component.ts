@@ -4,15 +4,14 @@ import {Router} from '@angular/router';
 import { Post } from '../../../models/Post';
 import { WpConnectService } from '../../../sevices/wp-connect.service';
 
-
 @Component({
-  selector: 'latest-posts',
-  templateUrl: './latest-posts.component.html',
-  styleUrls: ['./latest-posts.component.css'],
-  inputs: ['posts']
+  selector: 'home-container',
+  templateUrl: './home-container.component.html',
+  styleUrls: ['./home-container.component.css']
 })
-export class LatestPostsComponent implements OnInit {
+export class HomeContainerComponent implements OnInit {
   posts: Post[];
+  mainPost: Post;
   constructor(
     private wpService: WpConnectService,
     private router: Router
@@ -20,10 +19,10 @@ export class LatestPostsComponent implements OnInit {
    }
 
   ngOnInit() {
-  }
-
-  goToPost(id: string) {
-    this.router.navigate(['/post', id]);
+    this.wpService.getLatestPosts().subscribe(
+      (posts: Post[]) => {
+        this.posts = posts
+        this.mainPost = posts[0]});
   }
 
 }

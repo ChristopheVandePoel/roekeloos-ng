@@ -66,7 +66,7 @@ export class WpConnectService {
           this.getAuthorById(post.json().author, force).subscribe((author: Author) => fullPost.setPostAuthor(author));
           console.log(post.json());
           if(post.json().custom_meta && post.json().custom_meta.imageID) {
-            this.getMediaById(post.json().author, force).subscribe((media: Media) => fullPost.setPostMedia(media));
+            this.getMediaById(post.json().custom_meta.imageID, force).subscribe((media: Media) => fullPost.setPostMedia(media));
           }
           return fullPost;
         })
