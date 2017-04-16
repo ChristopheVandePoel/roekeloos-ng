@@ -1,6 +1,7 @@
 import { Author } from './Author';
 import { Media } from './Media';
 import sanitizeHtml from 'sanitize-html';
+import { getSyntaxformatted } from '../utils/syntax';
 
 export class Post {
     id: number
@@ -11,6 +12,7 @@ export class Post {
     author: Author;
     trimPost: string;
     media: Media;
+    contentWithCode: string;
 
     constructor(obj?: any
     ) {
@@ -20,6 +22,7 @@ export class Post {
         this.content =  obj && obj.content && obj.content.rendered || null;
         this.authorId =   obj && obj.author || null;
         this.trimPost = sanitizeHtml(this.content).substr(0,200);
+        this.getTheRightContent(this.content);
     }
 
     setPostAuthor(author: Author) {
@@ -28,5 +31,9 @@ export class Post {
 
     setPostMedia(media: Media) {
         this.media = media;
+    }
+
+    private getTheRightContent(input: string) {
+        this.contentWithCode = getSyntaxformatted(this.content);
     }
 }

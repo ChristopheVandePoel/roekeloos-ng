@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("/assets/syntax.css");
+
 @font-face {
     font-family: 'Bariol';
     src:    url("/assets/fonts/bariol_regular-webfont.woff2"),
@@ -32,3 +34,5 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+pre {display:none}

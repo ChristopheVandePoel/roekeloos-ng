@@ -9,6 +9,6 @@
       </div>
     </div>
   </div>
-  <div [innerHTML]='post.content | safeHtml' class="post-container" [class.push-container]="scrolledDown">
+  <div [innerHTML]='post.contentWithCode.toString() | safeHtml' class="post-container" [class.push-container]="scrolledDown">
   </div>
 </div>
