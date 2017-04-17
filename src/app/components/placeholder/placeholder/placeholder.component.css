@@ -16,3 +16,8 @@ div.content {
     text-align: center;
     width: 50%
 }
+
+:host {
+    display: block;
+    margin-top: 35px;
+}
