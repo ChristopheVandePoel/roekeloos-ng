@@ -10,7 +10,7 @@ var keywords = 'break case catch class continue ' +
 
 export default class Brush extends BrushBase {
 
-  static get aliases() {
+  static getAliases() {
     return ['js', 'jscript', 'javascript', 'json'];
   }
 

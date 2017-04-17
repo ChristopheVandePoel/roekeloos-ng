@@ -1,5 +1,5 @@
 import SyntaxHighlighter, {registerBrush} from '../js/syntaxhighlighter/src/core';
-import JsBrush from '../js/brush-javascript';
+import JsBrush from '../js/brush-javascript/brush';
 import { Brush as PhpBrush } from '../js/brush-php/brush';
 
 function getSyntaxformatted(content: string): string {
