@@ -11,10 +11,10 @@ export class PlaceholderComponent implements OnInit {
 
   constructor() {
     let code = `
-    <pre class="brush: php; title: ; notranslate" title="">
-    &lt;?php function(test) {
-        return $test;
-    }
+    <pre class="brush: jscript;">
+      export function isTimeToSleep(isCoffeeGone: boolean, isWorkFinished: boolean): boolean {
+        return (isCoffeeGone && isWorkFinished);
+      }
     </pre>`
     
     this.code = getSyntaxformatted(code);
