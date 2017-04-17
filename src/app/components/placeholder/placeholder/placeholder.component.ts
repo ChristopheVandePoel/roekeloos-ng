@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import SyntaxHighlighter, {registerBrush} from 'syntaxhighlighter';
-import PhpBrush from 'brush-php';
-
+import { getSyntaxformatted } from '../../../utils/syntax';
 
 @Component({
   selector: 'placeholder',
@@ -11,16 +9,15 @@ import PhpBrush from 'brush-php';
 export class PlaceholderComponent implements OnInit {
   code: String;
 
-  constructor() { 
-    registerBrush(PhpBrush);
-    this.code = `
+  constructor() {
+    let code = `
     <pre class="brush: php; title: ; notranslate" title="">
     &lt;?php function(test) {
         return $test;
     }
     </pre>`
-    setTimeout(() => {SyntaxHighlighter.highlight({});},2000);
     
+    this.code = getSyntaxformatted(code);
       
   }
 

@@ -1,0 +1,45 @@
+{
+  "name": "syntaxhighlighter-match",
+  "version": "4.0.0",
+  "description": "Core module for SyntaxHighlighter.",
+  "keywords": [
+    "syntaxhighlighter",
+    "parser",
+    "matches",
+    "core"
+  ],
+  "homepage": "https://github.com/syntaxhighlighter/syntaxhighlighter-match",
+  "bugs": "https://github.com/syntaxhighlighter/syntaxhighlighter-match/issues",
+  "author": {
+    "name": "Alex Gorbatchev",
+    "url": "https://github.com/alexgorbatchev"
+  },
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/syntaxhighlighter/syntaxhighlighter-match.git"
+  },
+  "scripts": {
+    "test": "mocha --opts tests/mocha.opts tests/**.test.js"
+  },
+  "dependencies": {
+    "syntaxhighlighter-regex": "^4.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.1.21",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-register": "^6.4.3",
+    "chai": "^3.4.1",
+    "mocha": "^2.3.4"
+  },
+  "engines": {
+    "node": ">=4",
+    "npm": ">=2"
+  },
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  }
+}

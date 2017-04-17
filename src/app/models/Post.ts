@@ -10,9 +10,9 @@ export class Post {
     content: string; 
     authorId: number;
     author: Author;
-    trimPost: string;
+    trimPost: string = "";
     media: Media;
-    contentWithCode: string;
+    contentWithCode: string = "";
 
     constructor(obj?: any
     ) {
@@ -21,8 +21,8 @@ export class Post {
         this.excerpt =  obj && obj.excerpt && obj.excerpt.rendered || null;
         this.content =  obj && obj.content && obj.content.rendered || null;
         this.authorId =   obj && obj.author || null;
-        this.trimPost = sanitizeHtml(this.content).substr(0,200);
-        this.getTheRightContent(this.content);
+        this.trimPost = sanitizeHtml(this.content).substr(0,200) || "";
+        this.getTheRightContent(this.content) || "";
     }
 
     setPostAuthor(author: Author) {
@@ -33,7 +33,8 @@ export class Post {
         this.media = media;
     }
 
-    private getTheRightContent(input: string) {
+    getTheRightContent(input: string) {
         this.contentWithCode = getSyntaxformatted(this.content);
+        //console.log('getttt', this.contentWithCode);
     }
 }
