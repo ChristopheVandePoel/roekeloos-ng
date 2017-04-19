@@ -1,6 +1,6 @@
 import { Author } from './Author';
 import { Media } from './Media';
-import sanitizeHtml from 'sanitize-html';
+import * as sanitizeHtml from 'sanitize-html';
 import { getSyntaxformatted } from '../utils/syntax';
 
 export class Post {
@@ -21,7 +21,7 @@ export class Post {
         this.excerpt =  obj && obj.excerpt && obj.excerpt.rendered || null;
         this.content =  obj && obj.content && obj.content.rendered || null;
         this.authorId =   obj && obj.author || null;
-        this.trimPost = sanitizeHtml(this.content).substr(0,200) || "";
+        this.trimPost = sanitizeHtml(this.content.substr(0,200)) || "";
         this.getTheRightContent(this.content) || "";
     }
 
