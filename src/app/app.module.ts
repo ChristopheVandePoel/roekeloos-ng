@@ -52,8 +52,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    WpConnectService,
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    WpConnectService
   ],
   bootstrap: [AppComponent]
 })
