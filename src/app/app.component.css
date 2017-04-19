@@ -1,0 +1,14 @@
+.container {
+    margin: 0 auto;
+    max-width: 75%;
+    flex: 1;
+}
+@media (max-width: 750px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+hr.bottom {
+    margin-top: 30px;
+}

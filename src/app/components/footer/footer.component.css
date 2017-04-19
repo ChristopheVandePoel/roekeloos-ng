@@ -1,0 +1,12 @@
+.container{
+    height: 60px;
+    background-color: rgb(47, 47, 47);
+    color: white;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.copyright {
+    position: relative;
+    top: 22px;
+}

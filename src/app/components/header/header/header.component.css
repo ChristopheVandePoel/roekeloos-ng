@@ -1,0 +1,28 @@
+div {
+    background-color: rgb(47, 47, 47);
+    color: white;
+}
+h1 {
+    font-family: 'Lato', sans-serif;
+    margin: 0 auto;
+    max-width: 75%;
+    text-align: right;
+    cursor: pointer;
+    padding: 10px 0;
+}
+
+hr {
+    background-color: #e4e4e4;
+    border: none;
+    border-collapse: collapse; 
+    display: block;
+    height: 1px;
+    margin: 0;
+}
+
+.logo {
+    position: absolute;
+    width: 80px;
+    height: auto;
+    padding: 10px;
+}

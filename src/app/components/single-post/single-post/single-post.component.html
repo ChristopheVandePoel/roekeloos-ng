@@ -1,0 +1,14 @@
+<div *ngIf="post" class="container">
+  <div class="title">
+    <h1>{{post.title}}</h1>
+    <post-banner *ngIf="post.media" [imageUrl]="post.media.url" class="post-banner"></post-banner>
+    <div *ngIf="post.author" class="author-card">
+      <div class="centered">
+        <img src={{post.author.avatar}} alt={{post.author.name}} />
+        <span>By {{post.author.name}}</span>
+      </div>
+    </div>
+  </div>
+  <div [innerHTML]='post.contentWithCode.toString() | safeHtml' class="post-container" [class.push-container]="scrolledDown">
+  </div>
+</div>

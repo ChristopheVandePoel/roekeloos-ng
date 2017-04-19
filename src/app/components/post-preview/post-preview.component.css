@@ -1,0 +1,90 @@
+.container {
+    margin: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-height: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+h2 {
+    margin-bottom: 0;
+}
+
+.author-name {
+    font-size: 0.8em;
+}
+
+.left-float {
+    flex-grow: 1;
+    flex-shrink: 0.3;
+    flex-basis: 180px;
+    height: 200px;
+    background-size: 110%;
+    background-position: 20%;
+    background-repeat: no-repeat;
+    background-color: transparent;
+}
+
+@media (max-width: 450px) {
+    .left-float{
+        display: none;
+    }
+
+    .background{
+        width: 85%;
+        height: 200px;
+        position: absolute;
+        z-index: 1;
+        background-size: 100%;
+    }
+
+    .overlay{
+        width:100%;
+        height: 200px;
+        background-color:rgba(249, 249, 249, 0.93);
+    }
+
+    .right-float{
+        z-index: 2;
+    }
+}
+
+.right-float {
+    flex-grow: 4;
+    flex-basis: 400px;
+}
+
+.text-field {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-height: 200px;
+}
+
+
+
+/* Prediction-breaking shite */
+:host /deep/ img {
+    /*margin: 0 10px 10px 10px;
+    padding: 2px;
+    border: 1px solid lightgray;
+    max-width: 100%;
+    height:auto;*/
+}
+
+:host /deep/ img.alignright {
+    float: right;
+}
+
+:host /deep/ img.alignleft {
+    float: left;
+}
+
+@media (max-width: 450px) {
+    :host /deep/ img.alignright {
+        display: block;
+        margin: 0 auto;
+    }
+}

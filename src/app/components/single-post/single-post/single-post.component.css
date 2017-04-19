@@ -1,0 +1,82 @@
+.container {
+    font-size: 1.3em;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5em; 
+}
+
+img {
+    padding: 2px;
+    border: 1px solid lightgray;
+    max-width: 100%;
+    height: auto;
+    width: 60px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.author-card {
+    padding: 10px;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    border-radius: 4px;
+    font-size: 0.7em;
+    margin-top: 30px;
+}
+
+.centered {
+    text-align: center;
+}
+
+span {
+    padding-left: 15px;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
+}
+
+.post-container {
+    margin-top: 50px; 
+}
+
+.post-banner {
+    display: block;
+    margin-top: 45px; 
+}
+
+/* Prediction-breaking shite */
+.post-container /deep/ pre {
+    display: block;
+    overflow: auto;
+}
+
+.post-container /deep/ img {
+    margin: 0 10px 10px 10px;
+    padding: 2px;
+    border: 1px solid lightgray;
+    max-width: 100%;
+    height:auto;
+}
+
+.post-container /deep/ img.alignright {
+    float: right;
+}
+
+.post-container /deep/ img.alignleft {
+    float: left;
+}
+
+.post-container /deep/ img.aligncenter {
+    margin: 0 auto;
+    display:block;
+}
+
+@media (max-width: 575px) {
+    .post-container /deep/ img.alignright, .post-container /deep/ img.alignleft {
+        display: block;
+        margin: 25px auto;
+        float: none;
+    }
+}
