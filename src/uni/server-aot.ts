@@ -6,12 +6,16 @@ import { AppServerModuleNgFactory } from '../../aot/src/uni/app.server.ngfactory
 import * as express from 'express';
 import { ngUniversalEngine } from './universal-engine';
 
+var compression = require('compression');
+
 enableProdMode();
 
 const app = express();
 
+app.use(compression());
+
 app.engine('html', ngUniversalEngine({
-	baseUrl: 'http://localhost:8000',
+	baseUrl: 'http://localhost:80',
 	bootstrap: [AppServerModuleNgFactory],
 }));
 

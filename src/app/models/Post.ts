@@ -34,9 +34,9 @@ export class Post {
     }
 
     getTheRightContent(input: string) {
-        // console.log(this.isPlatformBrowser);
-        // this.contentWithCode = this.isPlatformBrowser ?
-        //     getSyntaxformatted(this.content) :
+        //console.log(this.isPlatformBrowser);
+        this.contentWithCode = this.isPlatformBrowser ?
+            getSyntaxformatted(this.content) :
             this.contentWithCode = this.content;
         //console.log('getttt', this.contentWithCode);
     }

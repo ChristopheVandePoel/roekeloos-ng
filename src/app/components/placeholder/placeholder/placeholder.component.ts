@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { getSyntaxformatted } from '../../../utils/syntax';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'placeholder',
@@ -9,7 +10,7 @@ import { getSyntaxformatted } from '../../../utils/syntax';
 export class PlaceholderComponent implements OnInit {
   code: String;
 
-  constructor() {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     let code = `
     <pre class="brush: jscript;">
       export function isTimeToSleep(isCoffeeGone: boolean, isWorkFinished: boolean): boolean {
@@ -17,8 +18,7 @@ export class PlaceholderComponent implements OnInit {
       }
     </pre>`
     
-    //this.code = getSyntaxformatted(code);
-    this.code = "";
+    this.code = isPlatformBrowser(this.platformId) ? getSyntaxformatted(code): code;
       
   }
 

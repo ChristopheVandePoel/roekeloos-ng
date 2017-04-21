@@ -19,7 +19,6 @@
     "build:aot": "webpack --config webpack.config.aot.js",
     "build:uni": "webpack --config webpack.config.uni.js",
     "build:all": "rm -rf ./dist/ && npm run build:aot && npm run build:uni",
-    "serve:uni": "cd dist && node dist/main.server.bundle.js",
     "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
     "e2e": "protractor ./protractor.conf.js",
