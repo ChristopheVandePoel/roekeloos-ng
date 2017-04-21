@@ -46,7 +46,9 @@ const routes: Routes = [
     FooterComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({
+      appId: 'roekeloos-universal'
+    }),
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes)

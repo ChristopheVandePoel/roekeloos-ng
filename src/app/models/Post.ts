@@ -14,7 +14,7 @@ export class Post {
     media: Media;
     contentWithCode: string = "";
 
-    constructor(obj?: any
+    constructor(private isPlatformBrowser: boolean, obj?: any 
     ) {
         this.id = obj && obj.id;
         this.title =    obj && obj.title && obj.title.rendered || null;
@@ -34,7 +34,10 @@ export class Post {
     }
 
     getTheRightContent(input: string) {
-        this.contentWithCode = getSyntaxformatted(this.content);
+        // console.log(this.isPlatformBrowser);
+        // this.contentWithCode = this.isPlatformBrowser ?
+        //     getSyntaxformatted(this.content) :
+            this.contentWithCode = this.content;
         //console.log('getttt', this.contentWithCode);
     }
 }

@@ -17,7 +17,8 @@ export class PlaceholderComponent implements OnInit {
       }
     </pre>`
     
-    this.code = getSyntaxformatted(code);
+    //this.code = getSyntaxformatted(code);
+    this.code = "";
       
   }
 

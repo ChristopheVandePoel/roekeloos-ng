@@ -1,6 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 import { Post } from '../models/Post';
 import { Author } from '../models/Author';
@@ -11,7 +12,7 @@ import { environment } from '../../environments/environment';
 @Injectable()
 export class WpConnectService {
 
-    apiRoot: string;
+  apiRoot: string;
 
   // these will hold the Observables. Returning cached results if they can. 
   posts: {[id: number]: Observable<Post>} = {};
@@ -22,7 +23,7 @@ export class WpConnectService {
    * 
    * @param http 
    */
-  constructor(public http: Http) { 
+  constructor( @Inject(PLATFORM_ID) private platformId: Object, public http: Http) { 
     this.apiRoot = config.devConfig.apiRoot
     
     if (environment.production) {
@@ -37,7 +38,7 @@ export class WpConnectService {
     return this.http.get(`${this.apiRoot}posts`)
       .map((response: Response) => {
         return(<any>response.json().map((post) => {
-          let fullPost = new Post(post);
+          let fullPost = new Post(isPlatformBrowser(this.platformId), post);
           
           // the following line is messy. But handy. It keeps the controller-side clean, so we do not have to chain calls.
           // we are, however mutating data after it's been sent (because getAuthorById is async). 
@@ -62,7 +63,7 @@ export class WpConnectService {
     if(!this.posts[id] || force){
       this.posts[id] = this.http.get(`${this.apiRoot}posts/${id}`)
         .map((post: Response) => {
-          let fullPost = new Post(post.json());
+          let fullPost = new Post(isPlatformBrowser(this.platformId), post.json());
           this.getAuthorById(post.json().author, force).subscribe((author: Author) => fullPost.setPostAuthor(author));
           console.log(post.json());
           if(post.json().custom_meta && post.json().custom_meta.imageID) {
