@@ -13,7 +13,7 @@ export class PlaceholderComponent implements OnInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     let code = `
     <pre class="brush: jscript;">
-      export function isTimeToSleep(isCoffeeGone: boolean, isWorkFinished: boolean): boolean {
+      function isTimeToSleep(isCoffeeGone: boolean, isWorkFinished: boolean): boolean {
         return (isCoffeeGone && isWorkFinished);
       }
     </pre>`

@@ -37,19 +37,14 @@ module.exports = {
   },
   "entry": {
     "main": [
-      "./src/main-aot.ts"
-    ],
-    "polyfills": [
-      "./src/polyfills.ts"
-    ],
-    "styles": [
-      "./src/styles.css"
+      "./src/uni/server-aot.ts"
     ]
   },
+  "target": "node",
   "output": {
     "path": path.join(process.cwd(), "dist"),
-    "filename": "[name].[chunkhash:20].bundle.js",
-    "chunkFilename": "[id].[chunkhash:20].chunk.js"
+    "filename": "[name].server.bundle.js",
+    "chunkFilename": "[id].server.chunk.js"
   },
   "module": {
     "rules": [
@@ -190,7 +185,6 @@ module.exports = {
     ]
   },
   "plugins": [
-    new NoEmitOnErrorsPlugin(),
     new GlobCopyWebpackPlugin({
       "patterns": [
         "assets",
@@ -204,8 +198,8 @@ module.exports = {
     }),
     new ProgressPlugin(),
     new HtmlWebpackPlugin({
-      "template": "./src/index-aot.html",
-      "filename": "./index-aot.html",
+      "template": "./src/index.html",
+      "filename": "./index.html",
       "hash": false,
       "inject": true,
       "compile": true,
@@ -232,17 +226,6 @@ module.exports = {
     }
     }),
     new BaseHrefWebpackPlugin({}),
-    new CommonsChunkPlugin({
-      "name": "inline",
-      "minChunks": null
-    }),
-    new CommonsChunkPlugin({
-      "name": "vendor",
-      "minChunks": (module) => module.resource && module.resource.startsWith(nodeModules),
-      "chunks": [
-        "main"
-      ]
-    }),
     new ExtractTextPlugin({
       "filename": "[name].[contenthash:20].bundle.css",
       "disable": false
@@ -286,28 +269,15 @@ module.exports = {
     }),
     new SuppressExtractedTextChunksWebpackPlugin(),
     new DefinePlugin({
-      "process.env.NODE_ENV": "\"production\""
+      "process.env.NODE_ENV": "\"development\""
     }),
     new HashedModuleIdsPlugin({
       "hashFunction": "md5",
       "hashDigest": "base64",
       "hashDigestLength": 4
     }),
-    new UglifyJsPlugin({
-      "mangle": {
-        "screw_ie8": true
-      },
-      "compress": {
-        "screw_ie8": true,
-        "warnings": false
-      },
-      "sourceMap": false
-  }),
     new AotPlugin({
-      "hostReplacementPaths": {
-        "src/environments/environment.ts": "src/environments/environment.prod.ts"
-      },
-      "tsConfigPath": "./tsconfig-aot.json",
+      "tsConfigPath": "./tsconfig-uni.json",
       "skipCodeGeneration": false
     })
   ],

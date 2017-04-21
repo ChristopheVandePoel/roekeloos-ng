@@ -1,7 +1,7 @@
 import { Component, OnInit, PLATFORM_ID, Inject } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Router, NavigationEnd } from '@angular/router';
-
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 import { isPlatformBrowser } from '@angular/common';
 
 import 'rxjs/add/operator/map';
@@ -15,8 +15,11 @@ import 'rxjs/add/operator/switchMap';
 })
 export class AppComponent implements OnInit {
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object,private router: Router, ){
-    this.alwaysScrollToTopEventListener();
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
+    private router: Router ){
+      this.alwaysScrollToTopEventListener();
   }
 
   // very very basic scrolltop for routechanges. Doesn't handle 'back' button yet.

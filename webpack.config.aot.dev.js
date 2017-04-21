@@ -16,9 +16,6 @@ const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"
 const baseHref = "";
 const deployUrl = "";
 
-
-
-
 module.exports = {
   "devtool": false,
   "resolve": {
@@ -293,20 +290,7 @@ module.exports = {
       "hashDigest": "base64",
       "hashDigestLength": 4
     }),
-    new UglifyJsPlugin({
-      "mangle": {
-        "screw_ie8": true
-      },
-      "compress": {
-        "screw_ie8": true,
-        "warnings": false
-      },
-      "sourceMap": false
-  }),
     new AotPlugin({
-      "hostReplacementPaths": {
-        "src/environments/environment.ts": "src/environments/environment.prod.ts"
-      },
       "tsConfigPath": "./tsconfig-aot.json",
       "skipCodeGeneration": false
     })

@@ -5,8 +5,11 @@ import { AppServerModule } from './app.server';
 import { AppServerModuleNgFactory } from '../../aot/src/uni/app.server.ngfactory';
 import * as express from 'express';
 import { ngUniversalEngine } from './universal-engine';
+import { environment } from '../environments/environment';
 
 var compression = require('compression');
+
+const port = (environment.production) ? "80" : "8000";
 
 enableProdMode();
 
@@ -15,7 +18,7 @@ const app = express();
 app.use(compression());
 
 app.engine('html', ngUniversalEngine({
-	baseUrl: 'http://localhost:80',
+	baseUrl: 'http://localhost:' + port,
 	bootstrap: [AppServerModuleNgFactory],
 }));
 
@@ -36,6 +39,6 @@ app.get('/post/:id', (req, res) => {
 
 app.use(express.static('.'));
 
-app.listen(80,() => {
-	console.log('listening on 80...');
+app.listen(port,() => {
+	console.log(`listening on ${port}...`);
 });
