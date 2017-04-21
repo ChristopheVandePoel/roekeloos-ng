@@ -307,7 +307,7 @@ module.exports = {
       "hashDigest": "base64",
       "hashDigestLength": 4
     }),
-/*    new UglifyJsPlugin({
+    new UglifyJsPlugin({
       "mangle": {
         "screw_ie8": true
       },
@@ -316,9 +316,12 @@ module.exports = {
         "warnings": false
       },
       "sourceMap": false
-  }),*/
+    }),
     new AotPlugin({
       "tsConfigPath": "./tsconfig-uni.json",
+      "hostReplacementPaths": {
+        "src/environments/environment.ts": "src/environments/environment.prod.ts"
+      },
       "skipCodeGeneration": false
     })
   ],
