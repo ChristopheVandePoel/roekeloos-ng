@@ -7,6 +7,7 @@ import * as express from 'express';
 import { ngUniversalEngine } from './universal-engine';
 import { environment } from '../environments/environment';
 
+var path = require("path");
 var compression = require('compression');
 
 const port = (environment.production) ? "80" : "8000";
@@ -37,7 +38,15 @@ app.get('/post/:id', (req, res) => {
 	res.render('index-aot.html', {req});
 });
 
+app.get('/post/:id/:slug', (req, res) => {
+	res.render('index-aot.html', {req});
+});
+
 app.use(express.static('.'));
+
+app.use(function(req, res){
+       res.sendFile('index-aot.html', {root: './'});
+   });
 
 app.listen(port,() => {
 	console.log(`listening on ${port}...`);

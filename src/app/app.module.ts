@@ -24,10 +24,11 @@ import { SinglePostContainerComponent } from './components/single-post-container
 import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
+  { path: 'home', component: HomeContainerComponent},
   { path: 'post/:id', component: SinglePostContainerComponent},
   { path: 'post/:id/:slug', component: SinglePostContainerComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeContainerComponent}
+  { path: '**', redirectTo: 'home', pathMatch: 'full'} //needs 404
 ];
 
 @NgModule({
