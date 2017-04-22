@@ -25,6 +25,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
 const routes: Routes = [
   { path: 'post/:id', component: SinglePostContainerComponent},
+  { path: 'post/:id/:slug', component: SinglePostContainerComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeContainerComponent}
 ];

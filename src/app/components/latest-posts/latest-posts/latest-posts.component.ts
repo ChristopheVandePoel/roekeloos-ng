@@ -22,8 +22,8 @@ export class LatestPostsComponent implements OnInit {
   ngOnInit() {
   }
 
-  goToPost(id: string) {
-    this.router.navigate(['/post', id]);
+  goToPost(id: string, slug: string): void {
+    this.router.navigate(['/post', id, slug]);
   }
 
 }
