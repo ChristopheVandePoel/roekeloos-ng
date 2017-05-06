@@ -1,3 +1,5 @@
 {
-    "vsicons.presets.angular": true
+    "vsicons.presets.angular": true,
+    "javascript.validate.enable": true,
+    "typescript.validate.enable": true
 }
