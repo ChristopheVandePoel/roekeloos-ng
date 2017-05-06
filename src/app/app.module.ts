@@ -23,13 +23,7 @@ import { PostBannerComponent } from './components/post-banner/post-banner/post-b
 import { SinglePostContainerComponent } from './components/single-post-container/single-post-container/single-post-container.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-const routes: Routes = [
-  { path: 'home', component: HomeContainerComponent},
-  { path: 'post/:id', component: SinglePostContainerComponent},
-  { path: 'post/:id/:slug', component: SinglePostContainerComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home', pathMatch: 'full'} //needs 404
-];
+import { routes } from './routes';
 
 @NgModule({
   declarations: [
