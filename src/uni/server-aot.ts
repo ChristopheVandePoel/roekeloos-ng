@@ -2,6 +2,7 @@ import 'zone.js/dist/zone-node';
 import { platformServer, renderModuleFactory } from '@angular/platform-server';
 import { enableProdMode } from '@angular/core';
 import { AppServerModule } from './app.server';
+// TODO: next line does not resolve, because it depends on a preceding build-step. Will find a solution eventually
 import { AppServerModuleNgFactory } from '../../aot/src/uni/app.server.ngfactory';
 import * as express from 'express';
 import { ngUniversalEngine } from './universal-engine';

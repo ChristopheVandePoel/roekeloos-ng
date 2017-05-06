@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 
-import { WpConnectService } from '../../../sevices/wp-connect.service';
+import { WpConnectService } from '../../../services/wp-connect.service';
 import { Post } from '../../../models/Post';
 
 @Component({

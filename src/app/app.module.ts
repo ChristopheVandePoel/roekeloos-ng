@@ -8,7 +8,7 @@ import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 
 import { AppComponent } from './app.component';
 import { PostPreviewComponent } from './components/post-preview/post-preview.component';
-import {WpConnectService} from './sevices/wp-connect.service';
+import {WpConnectService} from './services/wp-connect.service';
 import { ClearComponent } from './components/clear/clear.component';
 
 import { SafeHtml } from './pipes/safeHtml.pipe';

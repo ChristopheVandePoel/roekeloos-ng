@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
 import { Post } from '../../../models/Post';
-import { WpConnectService } from '../../../sevices/wp-connect.service';
+import { WpConnectService } from '../../../services/wp-connect.service';
 
 
 @Component({
