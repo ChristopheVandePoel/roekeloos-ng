@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Router, NavigationEnd } from '@angular/router';
 import { Angulartics2GoogleAnalytics } from 'angulartics2';
 import { isPlatformBrowser } from '@angular/common';
+import { Title } from '@angular/platform-browser';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/publishReplay';
@@ -18,8 +19,10 @@ export class AppComponent implements OnInit {
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
-    private router: Router ){
+    private router: Router,
+    private title: Title ){
       this.alwaysScrollToTopEventListener();
+      title.setTitle('Roekeloos.be')
   }
 
   // very very basic scrolltop for routechanges. Doesn't handle 'back' button yet.

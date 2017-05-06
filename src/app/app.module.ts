@@ -4,13 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
+
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 
 import { AppComponent } from './app.component';
 import { PostPreviewComponent } from './components/post-preview/post-preview.component';
-import {WpConnectService} from './services/wp-connect.service';
+import { WpConnectService } from './services/wp-connect.service';
 import { ClearComponent } from './components/clear/clear.component';
-
 import { SafeHtml } from './pipes/safeHtml.pipe';
 import { HeaderComponent } from './components/header/header/header.component';
 import { PlaceholderComponent } from './components/placeholder/placeholder/placeholder.component';
