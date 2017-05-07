@@ -23,6 +23,7 @@ import { HomeContainerComponent } from './components/home-container/home-contain
 import { PostBannerComponent } from './components/post-banner/post-banner/post-banner.component';
 import { SinglePostContainerComponent } from './components/single-post-container/single-post-container/single-post-container.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SocialRibbon } from './components/social-ribbon/social-ribbon.component';
 
 import { routes } from './routes';
 
@@ -41,7 +42,8 @@ import { routes } from './routes';
     HomeContainerComponent,
     PostBannerComponent,
     SinglePostContainerComponent,
-    FooterComponent
+    FooterComponent,
+    SocialRibbon
   ],
   imports: [
     BrowserModule.withServerTransition({

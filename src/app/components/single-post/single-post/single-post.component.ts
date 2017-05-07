@@ -1,5 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import {Router} from '@angular/router';
 
 import { WpConnectService } from '../../../services/wp-connect.service';
 import { Post } from '../../../models/Post';
@@ -14,8 +14,12 @@ export class SinglePostComponent {
   post: Post;
 
   constructor(
-      private elementRef: ElementRef
+      private elementRef: ElementRef,
+      private router: Router
   ) { }
 
 
+  goToPost(): void {
+    this.router.navigate(['/post', this.post.id, this.post.slug]);
+  }
 }

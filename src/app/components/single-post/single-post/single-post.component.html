@@ -1,6 +1,7 @@
 <div *ngIf="post" class="container">
   <div class="title">
-    <h1>{{post.title}}</h1>
+    <h1 (click)="goToPost()">{{post.title}}</h1>
+    <div class="subtitle">{{post.description}}</div>
     <post-banner *ngIf="post.media" [imageUrl]="post.media.url" class="post-banner"></post-banner>
     <div *ngIf="post.author" class="author-card">
       <div class="centered">
@@ -9,6 +10,6 @@
       </div>
     </div>
   </div>
-  <div [innerHTML]='post.contentWithCode.toString() | safeHtml' class="post-container" [class.push-container]="scrolledDown">
+  <div [innerHTML]='post.contentWithCode.toString() | safeHtml' class="post-container">
   </div>
 </div>
