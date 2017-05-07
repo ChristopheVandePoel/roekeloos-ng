@@ -22,11 +22,11 @@ export class Post {
     constructor(private isPlatformBrowser: boolean, obj?: any 
     ) {
         this.id = obj && obj.id;
-        this.title =    obj && obj.title && obj.title.rendered || null;
-        this.excerpt =  obj && obj.excerpt && obj.excerpt.rendered || null;
-        this.content =  obj && obj.content && obj.content.rendered || null;
-        this.authorId =   obj && obj.author || null;
-        this.mediaId =   obj && obj.custom_meta && obj.custom_meta.imageID || null;
+        this.title = obj && obj.title && obj.title.rendered || null;
+        this.excerpt = obj && obj.excerpt && obj.excerpt.rendered || null;
+        this.content = obj && obj.content && obj.content.rendered || null;
+        this.authorId = obj && obj.author || null;
+        this.mediaId = obj && obj.custom_meta && obj.custom_meta.imageID || null;
         this.trimPost = sanitizeHtml(this.content.substr(0,200)) || "";
         this.getTheRightContent(this.content) || "";
         this.setSlug(this.title);

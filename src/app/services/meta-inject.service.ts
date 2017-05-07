@@ -6,7 +6,8 @@ interface Tags {
     description?: string
     image?: string
     type?: string,
-    creator?: string
+    creator?: string,
+    url?: string
 }
 
 @Injectable()
@@ -64,6 +65,12 @@ export class MetaInjectService {
                     this.meta.updateTag({
                         content: image
                     }, "property='og:image'");
+                    break;
+                case "url":
+                    let url = tags.url ? 'http://roekeloos.be' + tags.url : 'http://roekeloos.be/';
+                    this.meta.updateTag({
+                        content: url
+                    }, "property='og:url'");
                     break;
             }
         }

@@ -23,14 +23,18 @@ export class AppComponent implements OnInit {
     angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,
     private router: Router,
     private metaInjectService: MetaInjectService ){
-      this.alwaysScrollToTopEventListener();
+      this.newRouteEventListener();
       this.metaInjectService.setMetaTagsForHomePage();
   }
 
   // very very basic scrolltop for routechanges. Doesn't handle 'back' button yet.
-  alwaysScrollToTopEventListener() {
+  newRouteEventListener() {
     this.router.events.subscribe((event) => {
-      (event instanceof NavigationEnd && isPlatformBrowser(this.platformId)) ? window.scrollTo(0, 0) : null;
+      if(event instanceof NavigationEnd && isPlatformBrowser(this.platformId)){
+        window.scrollTo(0, 0);
+        this.metaInjectService.setMetaTagsForPost({url: event.url})
+        console.log('event:', event.url)
+      }
     });
   }
 
