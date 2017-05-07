@@ -18,9 +18,9 @@ export class MetaInjectService {
         private meta: Meta) {
     }
 
-    setMetaTagsForHomePage() {
+    setMetaTagsForHomePage(tags: Tags = {}) {
         this._removeAllTags()
-        this._setMetaTags();
+        this._setMetaTags(tags);
     }
 
     setMetaTagsForPost(tags:Tags = {}) {
@@ -79,6 +79,7 @@ export class MetaInjectService {
     private _setMetaTags( tags:Tags = {} ) {
         let tit = tags.title ? "Roekeloos.be | " + tags.title : "Roekeloos.be";
         let featureImage = tags.image ? tags.image : "http://roekeloos.be/assets/logo.png";
+        let url = tags.url ? 'http://roekeloos.be' + tags.url : 'http://roekeloos.be/';
 
         this.title.setTitle(tit);
         this.meta.addTags([
@@ -94,7 +95,7 @@ export class MetaInjectService {
             {name: "twitter:image:src", content:featureImage},
             {property: "og:title", content: tags.title || "Roekeloos.be"},
             {property: "og:type", content: "article"},
-            {property: "og:url", content: "http://roekeloos.be"},
+            {property: "og:url", content: url},
             {property: "og:image", content: featureImage},
             {property: "og:description", content: tags.description || "For the love of Code and Proze"},
             {property: "og:site_name", content: tags.title || "Roekeloos.be"}

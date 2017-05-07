@@ -24,16 +24,14 @@ export class AppComponent implements OnInit {
     private router: Router,
     private metaInjectService: MetaInjectService ){
       this.newRouteEventListener();
-      this.metaInjectService.setMetaTagsForHomePage();
   }
 
   // very very basic scrolltop for routechanges. Doesn't handle 'back' button yet.
   newRouteEventListener() {
     this.router.events.subscribe((event) => {
-      if(event instanceof NavigationEnd && isPlatformBrowser(this.platformId)){
-        window.scrollTo(0, 0);
-        this.metaInjectService.setMetaTagsForPost({url: event.url})
-        console.log('event:', event.url)
+      if(event instanceof NavigationEnd){
+        (isPlatformBrowser(this.platformId)) ? window.scrollTo(0, 0) : null;
+        this.metaInjectService.setMetaTagsForHomePage({url: event.url});
       }
     });
   }
