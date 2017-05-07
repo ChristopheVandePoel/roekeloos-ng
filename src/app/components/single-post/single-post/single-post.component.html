@@ -1,6 +1,7 @@
 <div *ngIf="post" class="container">
   <div class="title">
     <h1 (click)="goToPost()">{{post.title}}</h1>
+    <social-ribbon direction="column" [ribbonRoute]="post.id + '/' + post.slug" [text]="post.description"></social-ribbon>
     <div class="subtitle">{{post.description}}</div>
     <post-banner *ngIf="post.media" [imageUrl]="post.media.url" class="post-banner"></post-banner>
     <div *ngIf="post.author" class="author-card">
@@ -12,4 +13,5 @@
   </div>
   <div [innerHTML]='post.contentWithCode.toString() | safeHtml' class="post-container">
   </div>
+  <social-ribbon></social-ribbon>
 </div>

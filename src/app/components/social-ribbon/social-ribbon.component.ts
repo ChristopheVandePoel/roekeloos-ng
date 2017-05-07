@@ -1,18 +1,28 @@
 import { Component, OnInit } from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
     selector:'social-ribbon',
     templateUrl: './social-ribbon.component.html',
-    styleUrls: ['./social-ribbon.component.css']
+    styleUrls: ['./social-ribbon.component.css'],
+    inputs: ['direction', 'ribbonRoute', 'text']
 })
 export class SocialRibbon implements OnInit {
-    
-    constructor() {
-        
+    direction: string;
+    ribbonRoute: string;
+    routeToContent: string;
+    text: string;
+    className: string;
+
+    constructor(private router: Router) {
     }
     
     ngOnInit(){
-
+        if(!this.ribbonRoute) {
+            this.routeToContent = 'http://roekeloos.be' + this.router.url;
+        } else {
+            this.routeToContent = 'http://roekeloos.be/post/' + this.ribbonRoute;
+        };
+        this.className = `social-ribbon--container__${this.direction}`;
     }
 }
