@@ -3,6 +3,7 @@ import {Router} from '@angular/router';
 
 import { Post } from '../../../models/Post';
 import { WpConnectService } from '../../../services/wp-connect.service';
+import { MetaInjectService } from '../../../services/meta-inject.service';
 
 @Component({
   selector: 'home-container',
@@ -14,8 +15,10 @@ export class HomeContainerComponent implements OnInit {
   mainPost: Post;
   constructor(
     private wpService: WpConnectService,
-    private router: Router
+    private router: Router,
+    private metaInjectService: MetaInjectService
     ) {
+      metaInjectService.setMetaTagsForHomePage();
    }
 
   ngOnInit() {

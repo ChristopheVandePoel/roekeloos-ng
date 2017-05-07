@@ -10,6 +10,7 @@ import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 import { AppComponent } from './app.component';
 import { PostPreviewComponent } from './components/post-preview/post-preview.component';
 import { WpConnectService } from './services/wp-connect.service';
+import { MetaInjectService } from './services/meta-inject.service';
 import { ClearComponent } from './components/clear/clear.component';
 import { SafeHtml } from './pipes/safeHtml.pipe';
 import { HeaderComponent } from './components/header/header/header.component';
@@ -52,7 +53,8 @@ import { routes } from './routes';
     Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
   ],
   providers: [
-    WpConnectService
+    WpConnectService,
+    MetaInjectService
   ],
   bootstrap: [AppComponent]
 })

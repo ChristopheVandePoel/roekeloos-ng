@@ -3,6 +3,8 @@ import { Media } from './Media';
 import * as sanitizeHtml from 'sanitize-html';
 import { getSyntaxformatted } from '../utils/syntax';
 
+import { Observable } from 'rxjs';
+
 export class Post {
     id: number
     title: string;
@@ -11,9 +13,11 @@ export class Post {
     authorId: number;
     author: Author;
     trimPost: string = "";
+    mediaId: number;
     media: Media;
     contentWithCode: string = "";
     slug: string = "";
+    description: string;
 
     constructor(private isPlatformBrowser: boolean, obj?: any 
     ) {
@@ -22,9 +26,11 @@ export class Post {
         this.excerpt =  obj && obj.excerpt && obj.excerpt.rendered || null;
         this.content =  obj && obj.content && obj.content.rendered || null;
         this.authorId =   obj && obj.author || null;
+        this.mediaId =   obj && obj.custom_meta && obj.custom_meta.imageID || null;
         this.trimPost = sanitizeHtml(this.content.substr(0,200)) || "";
         this.getTheRightContent(this.content) || "";
         this.setSlug(this.title);
+        this.description = obj && obj.custom_meta && obj.custom_meta.description || null;
     }
 
     setPostAuthor(author: Author) {
@@ -55,10 +61,8 @@ export class Post {
     }
 
     getTheRightContent(input: string) {
-        //console.log(this.isPlatformBrowser);
         this.contentWithCode = this.isPlatformBrowser ?
             getSyntaxformatted(this.content) :
             this.contentWithCode = this.content;
-        //console.log('getttt', this.contentWithCode);
     }
 }
