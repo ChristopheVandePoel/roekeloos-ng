@@ -93,7 +93,7 @@ export class MetaInjectService {
             {name: "twitter:creator", content: tags.creator || "@ChristopheVdP"},
             {name: "twitter:image:src", content:featureImage},
             {property: "og:title", content: tags.title || "Roekeloos.be"},
-            {property: "og:type", content: "Homepage"},
+            {property: "og:type", content: "article"},
             {property: "og:url", content: "http://roekeloos.be"},
             {property: "og:image", content: featureImage},
             {property: "og:description", content: tags.description || "For the love of Code and Proze"},
