@@ -16,10 +16,8 @@ export class PlaceholderComponent implements OnInit {
       function isTimeToSleep(isCoffeeGone: boolean, isWorkFinished: boolean): boolean {
         return (isCoffeeGone && isWorkFinished);
       }
-    </pre>`
-    
-    this.code = isPlatformBrowser(this.platformId) ? getSyntaxformatted(code): code;
-      
+    </pre>`;
+    this.code = isPlatformBrowser(this.platformId) ? getSyntaxformatted(code) : code;
   }
 
   ngOnInit() {

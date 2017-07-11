@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostBannerComponent implements OnInit {
   imageUrl: string;
-  
+
   constructor() { }
 
   ngOnInit() {

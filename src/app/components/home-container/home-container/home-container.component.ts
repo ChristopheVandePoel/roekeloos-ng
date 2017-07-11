@@ -24,7 +24,7 @@ export class HomeContainerComponent implements OnInit {
   ngOnInit() {
     this.wpService.getLatestPosts().subscribe(
       (posts: Post[]) => {
-        this.posts = posts
+        this.posts = posts;
         this.mainPost = posts[0]});
   }
 

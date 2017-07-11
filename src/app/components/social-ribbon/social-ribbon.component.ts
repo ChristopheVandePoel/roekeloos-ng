@@ -16,9 +16,8 @@ export class SocialRibbon implements OnInit {
 
     constructor(private router: Router) {
     }
-    
     ngOnInit(){
-        if(!this.ribbonRoute) {
+        if (!this.ribbonRoute) {
             this.routeToContent = 'http://roekeloos.be' + this.router.url;
         } else {
             this.routeToContent = 'http://roekeloos.be/post/' + this.ribbonRoute;

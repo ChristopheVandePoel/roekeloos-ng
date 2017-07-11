@@ -14,12 +14,12 @@ import { Media } from '../../../models/Media';
 })
 export class SinglePostContainerComponent implements OnInit {
   post: Post;
-  
-  constructor(      
+
+  constructor(
       private wpService: WpConnectService,
       private route: ActivatedRoute,
       private router: Router,
-      private metaInjectService: MetaInjectService ) { 
+      private metaInjectService: MetaInjectService ) {
   }
 
   ngOnInit() {
@@ -30,10 +30,10 @@ export class SinglePostContainerComponent implements OnInit {
         this.post = post;
         if(post.mediaId){
           this.wpService.getMediaById(post.mediaId)
-            .subscribe((media:Media) => {
+            .subscribe((media: Media) => {
               this.metaInjectService.setMetaTagsForPost({image: media.url})
-          })
-        }else {
+          });
+        } else {
           this.metaInjectService.setMetaTagsForPost({image: null})
         }
 
