@@ -184,7 +184,7 @@ module.exports = {
         test: /\.ts$/,
         loaders: ['awesome-typescript-loader', 'angular2-template-loader', '@angularclass/hmr-loader'],
         exclude: [/\.(spec|e2e)\.ts$/, /node_modules\/(?!(ng2-.+))/]
-      
+
       }
     ]
   },
@@ -196,7 +196,7 @@ module.exports = {
         "favicon.ico"
       ],
       "globOptions": {
-        "cwd": "/mnt/c/Users/Stoffel/Documents/Projects/roekeloos/src",
+        "cwd": "./src",
         "dot": true,
         "ignore": "**/.gitkeep"
       }
