@@ -1,0 +1,125 @@
+.contact-container {
+  background-color: #fdfdfd;
+  width: 90%;
+  max-width: 1200px;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translate(-50%);
+  transform: translate(-50%);
+  border: 1px solid #e4e3e3;
+  border-radius: 2px;
+  padding: 40px 30px 20px;
+  margin-top: -250px;
+}
+
+.left-side {
+  float: left;
+  width: 60%;
+}
+.right-side {
+  float: right;
+  width: 38%;
+}
+
+.face-badge {
+  position: relative;
+}
+
+.face-circle {
+  background-image: url("./assets/face.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+  width: 140px;
+  height: 140px;
+  border: 3px solid gray;
+  border-radius: 50%;
+  position: absolute;
+  top: -100px;
+  left: 180px;
+}
+
+@media (max-width: 920px) {
+    .right-side, .left-side {
+        float: none;
+        width: 100%;
+    }
+    .face-circle {
+      width: 50px;
+      height: 50px;
+      float: right;
+      position: unset;
+    }
+}
+
+.roek-title {
+  font-size: 2.3em;
+  line-height: 1em;
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.roek-mini-line {
+  font-size: 0.8em;
+  margin: 0;
+  padding: 0;
+  display: block;
+  position: relative;
+  top: -2px;
+}
+
+input[type='text'], textarea {
+  font-family: inherit;
+  display: block;
+  width: 98%;
+  margin: 10px 0;
+  font-size: 1.2em;
+  min-height: 1.5em;
+  border: 1px solid #f1f1f1;
+  border-collapse: collapse;
+  padding: 4px;
+}
+
+input[type='button'] {
+  background-color: #7b0000;
+  padding: 5px 12px;
+  border: 1px solid #1f0000;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.text-body {
+  width: 100%;
+  position: relative;
+}
+
+.emph {
+  font-weight: bold;
+}
+
+.text-body p {
+  margin: 5px 0;
+}
+
+.address {
+  padding: 10px;
+  background-color: #f3f3f3;
+  border: 1px solid #eaeaea;
+  border-radius: 2px;
+  margin-bottom: 10px;
+}
+
+.github-icon, .linkedin-icon {
+  background-size: cover;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+
+.github-icon {
+  background-image: url('./assets/mark-github-256.png');
+}
+
+.linkedin-icon {
+  background-image: url('./assets/34227.png');
+}

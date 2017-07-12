@@ -28,11 +28,14 @@ div.codeContainer {
     display: block;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 920px) {
     div.bannerContainer{
-        height: 275px;
+        height: 350px;
     }
     div.codeContainer {
         bottom: -40px;
     }
+  .roek-title {
+    display: none;
+  }
 }
