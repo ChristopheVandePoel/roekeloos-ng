@@ -1,5 +1,5 @@
 export var devConfig = {
-    apiRoot: 'http://roekeloos-wp.be/wp-json/wp/v2/'
+    apiRoot: 'http://www.roekeloos-wp.dev/wp-json/wp/v2/'
 };
 
 export var prodConfig = {

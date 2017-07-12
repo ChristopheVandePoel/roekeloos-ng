@@ -20,6 +20,7 @@ import { LatestPostsComponent } from './components/latest-posts/latest-posts/lat
 import { SinglePostComponent } from './components/single-post/single-post/single-post.component';
 import { WatchScrollDirective } from './directives/watch-scroll/watch-scroll.directive';
 import { HomeContainerComponent } from './components/home-container/home-container/home-container.component';
+import { ContactContainerComponent } from './components/contact-container/contact-container.component';
 import { PostBannerComponent } from './components/post-banner/post-banner/post-banner.component';
 import { SinglePostContainerComponent } from './components/single-post-container/single-post-container/single-post-container.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -43,7 +44,8 @@ import { routes } from './routes';
     PostBannerComponent,
     SinglePostContainerComponent,
     FooterComponent,
-    SocialRibbon
+    SocialRibbon,
+    ContactContainerComponent
   ],
   imports: [
     BrowserModule.withServerTransition({

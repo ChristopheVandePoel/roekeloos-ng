@@ -19,4 +19,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  navigateTo(location) {
+    this.router.navigate([location]);
+  }
+
 }

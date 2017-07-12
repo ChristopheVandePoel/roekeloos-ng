@@ -1,6 +1,9 @@
 <div>
-  <img src="/assets/logo.png" alt="" class="logo" />
-  <h1 (click)="navigateHome()">
-    Roekeloos.be
-  </h1>
+  <img src="/assets/logo.png" alt="" class="logo" (click)="navigateHome()"/>
+  <div class="header-menu">
+    <ul>
+      <li (click)="navigateTo('home')">Contact</li>
+      <li (click)="navigateTo('code')">Code</li>
+    </ul>
+  </div>
 </div>
