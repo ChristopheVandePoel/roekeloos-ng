@@ -34,15 +34,23 @@
       <p>Feel free to  <span class="emph">contact me</span> if you need help with your dream, or if you need someone to fend off disaster:</p>
       <div class="txt-input-left">
         <span class="label-for-field">Name</span>
-        <input type="text" />
+        <input type="text" [value]='data.name' (input)="changeValue($event)" id="name" placeholder="Your name" />
       </div>
       <div class="txt-input-right">
         <span class="label-for-field">Email</span>
-        <input type="text" />
+        <input type="text" [value]='data.email' (input)="changeValue($event)" id="email" placeholder="Your email" />
       </div>
       <span class="label-for-field">Message</span>
-      <textarea name="" id="" cols="30" rows="8"></textarea>
-      <input type="button" value="send" />
+      <textarea
+        name=""
+        cols="30"
+        rows="8"
+        [value]="data.message"
+        (input)="changeValue($event)"
+        id="message"
+        placeholder="Your message">
+      </textarea>
+      <input type="button" value="send" (click)="sendMail()" />
     </div>
   </div>
   <clear></clear>

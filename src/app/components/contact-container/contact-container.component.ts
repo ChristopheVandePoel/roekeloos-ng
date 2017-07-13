@@ -7,5 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ContactContainerComponent {
+  public data = {
+    name: '',
+    email: '',
+    message: ''
+  }
 
+  changeValue(event) {
+    this.data = {
+      ...this.data,
+      [event.target.id]: event.target.value
+    }
+  }
+
+  sendMail() {
+    console.log('I will send data', this.data);
+  }
 }
