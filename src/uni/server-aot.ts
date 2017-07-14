@@ -8,10 +8,10 @@ import * as express from 'express';
 import { ngUniversalEngine } from './universal-engine';
 import { environment } from '../environments/environment';
 
-var path = require("path");
-var compression = require('compression');
+const path = require('path');
+const compression = require('compression');
 
-const port = (environment.production) ? "80" : "8000";
+const port = (environment.production) ? '80' : '8000';
 
 enableProdMode();
 
@@ -20,27 +20,27 @@ const app = express();
 app.use(compression());
 
 app.engine('html', ngUniversalEngine({
-	baseUrl: 'http://localhost:' + port,
-	bootstrap: [AppServerModuleNgFactory],
+  baseUrl: 'http://localhost:' + port,
+  bootstrap: [AppServerModuleNgFactory],
 }));
 
 app.set('view engine', 'html');
-app.set('views','.');
+app.set('views', '.');
 
 app.get('/', (req, res) => {
-	res.render('index-aot.html', {req});
+  res.render('index-aot.html', {req});
 });
 
 app.get('/home*', (req, res) => {
-	res.render('index-aot.html', {req});
+  res.render('index-aot.html', {req});
 });
 
 app.get('/post/:id', (req, res) => {
-	res.render('index-aot.html', {req});
+  res.render('index-aot.html', {req});
 });
 
 app.get('/post/:id/:slug', (req, res) => {
-	res.render('index-aot.html', {req});
+  res.render('index-aot.html', {req});
 });
 
 app.use(express.static('.'));
@@ -50,5 +50,5 @@ app.use(function(req, res){
    });
 
 app.listen(port,() => {
-	console.log(`listening on ${port}...`);
+  console.log(`listening on ${port}...`);
 });

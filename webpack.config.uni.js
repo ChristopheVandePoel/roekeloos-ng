@@ -1,34 +1,3 @@
-// const path = require('path');
-// const ngtools = require('@ngtools/webpack');
-// const webpack = require('webpack');
-// module.exports = {
-//     devtool: 'source-map',
-//     entry: {
-//         main: ['./src/uni/app.server.ts', './src/uni/server-aot.ts']
-//     },
-//     resolve: {
-//         extensions: ['.ts', '.js']
-//     },
-//     target: 'node',
-//     output: {
-//         "path": path.join(process.cwd(), "./src/dist"),
-//         filename: 'server.js'
-//     },
-//     plugins: [
-//         new ngtools.AotPlugin({
-//             tsConfigPath: './tsconfig-uni.json'
-//         })/*,
-//         new webpack.optimize.UglifyJsPlugin({ sourceMap: true })*/
-//     ],
-//     module: {
-//         rules: [
-//             { test: /\.css$/, loader: 'raw-loader' },
-//             { test: /\.html$/, loader: 'raw-loader' },
-//             { test: /\.ts$/, loader: '@ngtools/webpack' }
-//         ]
-//     }
-// }
-
 const path = require('path');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -46,9 +15,6 @@ const nodeModules = path.join(process.cwd(), 'node_modules');
 const entryPoints = ["inline","polyfills","sw-register","styles","vendor","main"];
 const baseHref = "";
 const deployUrl = "";
-
-
-
 
 module.exports = {
   "devtool": false,
@@ -222,7 +188,7 @@ module.exports = {
         "favicon.ico"
       ],
       "globOptions": {
-        "cwd": "/mnt/c/Users/Stoffel/Documents/Projects/roekeloos/src",
+        "cwd": "./src",
         "dot": true,
         "ignore": "**/.gitkeep"
       }

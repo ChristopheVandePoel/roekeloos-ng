@@ -191,7 +191,7 @@ module.exports = {
         "favicon.ico"
       ],
       "globOptions": {
-        "cwd": "/mnt/c/Users/Stoffel/Documents/Projects/roekeloos/src",
+        "cwd": "./src",
         "dot": true,
         "ignore": "**/.gitkeep"
       }

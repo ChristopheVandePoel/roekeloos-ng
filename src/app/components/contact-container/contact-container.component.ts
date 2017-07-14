@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'contact-container',
@@ -13,6 +14,8 @@ export class ContactContainerComponent {
     message: ''
   }
 
+  constructor(private http: Http) {}
+
   changeValue(event) {
     this.data = {
       ...this.data,
@@ -20,7 +23,18 @@ export class ContactContainerComponent {
     }
   }
 
+  sendComment() {
+    // this works! now change it to something sensible that will work on a server.
+    return this.http.post('http://localhost:9991/mail', this.data)
+      .map((resp) => "Whu")
+      .catch((error: any) => 'Server Error');
+  }
+
   sendMail() {
-    console.log('I will send data', this.data);
+    // console.log('I will send data', this.data, 'http://localhost:9991/mail');
+    this.sendComment().subscribe(
+      comment => console.log(comment),
+      err => console.log(err)
+    );
   }
 }
