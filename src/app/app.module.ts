@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -11,6 +12,7 @@ import { AppComponent } from './app.component';
 import { PostPreviewComponent } from './components/post-preview/post-preview.component';
 import { WpConnectService } from './services/wp-connect.service';
 import { MetaInjectService } from './services/meta-inject.service';
+import { SendMailService } from './services/send-mail.service';
 import { ClearComponent } from './components/clear/clear.component';
 import { SafeHtml } from './pipes/safeHtml.pipe';
 import { HeaderComponent } from './components/header/header/header.component';
@@ -29,6 +31,16 @@ import { SocialRibbon } from './components/social-ribbon/social-ribbon.component
 import { routes } from './routes';
 
 @NgModule({
+  imports: [
+    BrowserModule.withServerTransition({
+      appId: 'roekeloos-universal'
+    }),
+    NoopAnimationsModule,
+    FormsModule,
+    HttpModule,
+    RouterModule.forRoot(routes),
+    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
+  ],
   declarations: [
     AppComponent,
     PostPreviewComponent,
@@ -47,18 +59,10 @@ import { routes } from './routes';
     SocialRibbon,
     ContactContainerComponent
   ],
-  imports: [
-    BrowserModule.withServerTransition({
-      appId: 'roekeloos-universal'
-    }),
-    FormsModule,
-    HttpModule,
-    RouterModule.forRoot(routes),
-    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ])
-  ],
   providers: [
     WpConnectService,
-    MetaInjectService
+    MetaInjectService,
+    SendMailService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,4 +1,4 @@
-<div class="contact-container">
+<div class="contact-container" [@slideInOut]>
   <div class="right-side">
     <div class="text-body">
       <div class="face-badge">
@@ -26,21 +26,46 @@
     </div>
   </div>
   <div class="left-side">
-    <div class="text-body">
+    <div class="contact-tabs">
+      <span (click)="changeTabTo('greet')" [class.active]="isActiveTab('greet')">&larr;</span>
+    </div>
+    <clear></clear>
+    <div class="text-body" *ngIf="isActiveTab('greet')" [@fadeInOut]>
       <p>Hi, I'm <span class="emph">Christophe Van de Poel</span>, Web Developer and proud owner of <span class="emph">Roekeloos.be</span>.</p>
       <p>I can provide a complete solution to your online needs, using the coolest toys.</p>
+      <div class="text-credentials"></div>
+      <p>I specialize in:</p>
+        <ul>
+          <li>Developing <span class="emph">web and mobile</span> applications that suite your needs.</li>
+          <li>Implementing backend infrastructure to update your application. (Wordpress, PHP, MySQL, NodeJs,...)</li>
+          <li>Providing <span class="emph">brand design</span>, both digital and print, to help you stand out in the crowd.</li>
+          <li><span class="emph">Consulting</span> on frontend solutions for the modern development environment.</li>
+          <ul>
+            <li>Bleeding-edge Frontend frameworks and their architecture (Angular, React, Redux/graphQL, Webpack, gulp,...)</li>
+            <li>Continuous integration</li>
+            <li>Agile workflows</li>
+            <li>...</li>
+          </ul>
+        </ul>
+        <br />
+        <br />
+    <button (click)="changeTabTo('contact')">Click here to contact me!</button>
     </div>
-    <div class="contact-form">
+    <div class="text-body" *ngIf="isActiveTab('contact')" [@fadeInOut]>
       <p>Feel free to  <span class="emph">contact me</span> if you need help with your dream, or if you need someone to fend off disaster:</p>
+      <div class="mail-overlay" *ngIf="mailPending || mailSuccess">
+        <div *ngIf="mailPending" class="sendmail-message">Sending message...</div>
+        <div *ngIf="mailSuccess" class="sendmail-message"  [@fadeInOut]>Success! <br /> Thank you for your question, I will answer as soon as possible.</div>
+      </div>
       <div class="txt-input-left">
-        <span class="label-for-field">Name</span>
+        <span class="label-for-field">Name</span> &nbsp; <span class="validation-error" *ngIf="validationError.name">{{validationError.name}}</span>
         <input type="text" [value]='data.name' (input)="changeValue($event)" id="name" placeholder="Your name" />
       </div>
       <div class="txt-input-right">
-        <span class="label-for-field">Email</span>
+        <span class="label-for-field">Email</span> &nbsp; <span class="validation-error" *ngIf="validationError.email">{{validationError.email}}</span>
         <input type="text" [value]='data.email' (input)="changeValue($event)" id="email" placeholder="Your email" />
       </div>
-      <span class="label-for-field">Message</span>
+      <span class="label-for-field">Message</span> &nbsp; <span class="validation-error" *ngIf="validationError.message">{{validationError.message}}</span>
       <textarea
         name=""
         cols="30"
@@ -50,7 +75,8 @@
         id="message"
         placeholder="Your message">
       </textarea>
-      <input type="button" value="send" (click)="sendMail()" />
+      <div class="error-block" *ngIf="mailError"> <span>Oops! Something went wrong. Try again or <a href="mailto:christophe@roekeloos.be">send me an email in stead.</a> </span></div>
+      <button (click)="sendMail()" [disabled]="mailSuccess || mailPending">Send</button>
     </div>
   </div>
   <clear></clear>
