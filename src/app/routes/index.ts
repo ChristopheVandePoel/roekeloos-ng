@@ -9,12 +9,12 @@ export const routes: Routes = [
     path: 'home',
     component: ContactContainerComponent
   },
-  {
-    path: 'code',
-    component: HomeContainerComponent
-  },
-  { path: 'post/:id', component: SinglePostContainerComponent},
-  { path: 'post/:id/:slug', component: SinglePostContainerComponent},
+  // {
+  //   path: 'code',
+  //   component: HomeContainerComponent
+  // },
+  // { path: 'post/:id', component: SinglePostContainerComponent},
+  // { path: 'post/:id/:slug', component: SinglePostContainerComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: '**', redirectTo: 'home', pathMatch: 'full'} // needs 404
 ];
